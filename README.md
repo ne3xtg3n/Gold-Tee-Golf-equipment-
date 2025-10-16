@@ -585,7 +585,3 @@ in the Software without restriction, including without limitation the rights…
 
 ---
 
-Done.
-
-This version showcases your hero images + videos beautifully, gives makers a one-file parametric CAD, and ships print/assembly/safety/troubleshooting docs so anyone can build it confidently. If you want, I can also draft a GitHub Social Preview (OG image) banner and a release checklist (tagging STLs per version, changelog, etc.).
-
