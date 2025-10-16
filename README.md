@@ -1,7 +1,112 @@
+# 🏌️‍♂️ GOLD TEE — Illuminated, Rechargeable Golf Tee  
+**Two Styles:** Window (V2) · Windowless (V3)
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/f97330b8-8637-4bcf-997c-96623dc8f62b"
+       alt="Gold Tee — V2 Window Hero"
+       width="100%" style="border-radius:16px;"/>
+</p>
+
+<p align="center">
+  <b>V2 (Window) — Hero</b><br/>
+  Slim, standard tee geometry with side USB-C access and LED illumination.
+</p>
+
+---
+
+## ✨ Two Styles — Visual Showcase
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <div align="center">
+        <img src="https://github.com/user-attachments/assets/f97330b8-8637-4bcf-997c-96623dc8f62b"
+             alt="Gold Tee V2 Window — Hero"
+             width="95%" style="border-radius:12px;"/>
+        <br/>
+        <sub><b>V2 — Window</b><br/>Classic look with tiny light window + side USB-C</sub>
+      </div>
+    </td>
+    <td width="50%" valign="top">
+      <div align="center">
+        <img src="https://github.com/user-attachments/assets/821aceda-5df2-4655-b6bb-91826e01f9c4"
+             alt="Gold Tee V3 Windowless — Hero 1"
+             width="95%" style="border-radius:12px;"/>
+        <br/>
+        <sub><b>V3 — Windowless</b><br/>Fully translucent body for perfectly even LED diffusion</sub>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <div align="center">
+        <img src="https://github.com/user-attachments/assets/6a7fbad7-4490-4620-8a7b-c2b028614ab0"
+             alt="Gold Tee V3 Windowless — Hero 2"
+             width="95%" style="border-radius:12px;"/>
+        <br/>
+        <sub><b>V3 — Windowless</b><br/>Translucent shell = no cutout = stronger structure + smoother glow</sub>
+      </div>
+    </td>
+    <td width="50%" valign="top">
+      <div align="center" style="opacity:.85">
+        <em>More build photos coming soon…</em>
+      </div>
+    </td>
+  </tr>
+</table>
+
+---
+
+## What Is Gold Tee?
+A standard-feel golf tee with a rechargeable LED for night play and ball finding. The CAD is parametric, so you can export **both styles** from a single file.
+
+- **Standard Geometry:** 70 mm height (2.75"), ~4 mm shaft, pointed tip, 12 mm shallow cup  
+- **Electronics:** 5 mm LED, 1S LiPo (~50 mAh), tiny USB-C charge-only board, optional vibration switch or accel  
+- **Prints Like a Tank:** Sideways orientation, 100% infill, PETG/TPU/PC depending on your flex goal
+
+---
+
+## Repo Map
+
+gold-tee/ ├── README.md ├── LICENSE ├── docs/ │   ├── assembly.md │   ├── printing.md │   ├── durability_tests.md │   └── safety.md ├── cad/ │   ├── gold_tee.scad        # one parametric file → both styles │   └── usb_cap.scad ├── stls/ │   ├── gold_tee_window.stl │   ├── gold_tee_windowless.stl │   └── usb_cap.stl ├── electronics/ │   ├── schematic-notes.md │   └── code/ │       └── tee_light.ino └── images/ ├── hero_window.jpg      # (optional local copies) ├── hero_windowless.jpg └── exploded.png
+
+---
+
+## Print Quick-Start
+- **Material:**  
+  - V2 (Window): PETG or PC for rigidity  
+  - V3 (Windowless): translucent PETG for glow, or TPU for max flex  
+- **Slicer:** 0.20 mm layers · 100% infill · **print sideways** (layers ⟂ club path)  
+- **Supports:** minimal (tip & cup underside). Add 3–5 mm brim.
+
+---
+
+## Assembly Snapshot
+1) Dry-fit USB-C + LiPo in side cavity · 2) Pad with silicone gel/foam · 3) Epoxy LED into head  
+4) Seal cap · 5) Charge cool · 6) Light should trigger on impact (5–10 s)
+
+---
+
+## Safety Notes
+- Use a **charge-only** USB-C board and **conservative** charge current (≤ 50–80 mA for 50 mAh cell).  
+- Let the tee cool before charging after a session.  
+- Pot electronics against moisture; bench-test before course use.
+
+---
+
+## Credits
+Designed by Christopher Perry. Images © their respective owner(s). MIT License.
+
+
+---
+
+
+
+
+
+#**Original** 
 **#Gold Tee** There are Two Styles Window-Windowless
 Hero Image
-
-<img width="1024" height="1024" alt="1000016613" src="https://github.com/user-attachments/assets/f97330b8-8637-4bcf-997c-96623dc8f62b" />
 
 
 ### V2 Illuminated Rechargeable Golf Tee: Redesigned for Standard Configuration 🪟 Window
@@ -175,11 +280,6 @@ MIT License. Credit @grok-xai.
 
 
 ### Gold Tee: V3 Illuminated Rechargeable Golf Tee (Windowless Version)
-![1000016629](https://github.com/user-attachments/assets/821aceda-5df2-4655-b6bb-91826e01f9c4)
-
-<img width="1024" height="1024" alt="1000016627" src="https://github.com/user-attachments/assets/6a7fbad7-4490-4620-8a7b-c2b028614ab0" />
-
-
 
 After rigorously Vertual "testing" the windowless V2 design through virtual simulations informed by extensive research (including patents, material comparisons, and standard tee benchmarks), Need to be  reconstructed it so I turned it into V3 for optimal performance.
 
@@ -338,3 +438,4 @@ MIT License - see `LICENSE`.
    ```
 
 **This V3 is improved: Better diffusion, flex, and novelty We aim to make you see the night differently . Ready for print! 
+
