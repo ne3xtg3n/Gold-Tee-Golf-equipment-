@@ -1,4 +1,9 @@
 **#Gold Tee**
+Hero Image
+<img width="1024" height="1024" alt="1000016611" src="https://github.com/user-attachments/assets/1dbd3387-e1b1-4277-aacb-4fdaa07f9dc8" />
+
+<img width="1024" height="1024" alt="1000016613" src="https://github.com/user-attachments/assets/f97330b8-8637-4bcf-997c-96623dc8f62b" />
+
 ### V2 Illuminated Rechargeable Golf Tee: Redesigned for Standard Configuration
 
 After running virtual "tests" based on extensive research into standard golf tee designs, the impact-resistant materials, and 3D-printed durability best practices, I've reconstructed your invention to closely mimic a traditional golf tee while retaining the LED lighting and USB-C rechargeability. The goal was to ensure it functions identically to a normal tee—easy ground insertion, stable ball hold, minimal resistance on impact, and natural flex—without compromising the electronics. If the original thicker design (6mm shaft) risked poor flex or unnatural feel (as thicker tees can increase friction and alter ball flight), this V2 slims it down to standard specs for better performance.
