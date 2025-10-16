@@ -56,6 +56,153 @@
 </table>
 
 ---
+OpenSCAD file you can output both styles (Window + Windowless) just by switching one variable. I’ve also included quick export steps (GUI + command-line).Best of Luck and  email me with any questions or gifts lol cp32352@gmail.com 
+
+
+---
+
+cad/gold_tee.scad  → one file, two styles
+
+// GOLD TEE — Parametric Tee (Window + Windowless)
+// Export both styles from this one file by changing STYLE.
+// Suggested STL names: gold_tee_window.stl / gold_tee_windowless.stl
+
+$fn = 64;
+
+// -------------------- Style Switch --------------------
+STYLE = "windowless";   // "window" or "windowless"
+
+// -------------------- Geometry Params --------------------
+tee_height = 70;        // mm (2.75")
+tip_len    = 10;        // mm, ground insert tip
+shaft_dia  = 4.0;       // mm, standard feel (3.6–4.5 good range)
+head_dia   = 12.0;      // mm, shallow cup outer diameter
+cup_depth  = 3.0;       // mm, 2–4 typical
+body_wall  = 1.0;       // mm around cavities
+
+// -------------------- Electronics Cavity --------------------
+bat_len = 20;           // LiPo length (Z axis inside cavity)
+bat_w   = 12;           // LiPo width  (Y axis)
+bat_h   = 4;            // LiPo thick  (X axis outward)
+usb_w   = 9;            // USB-C opening width (Y)
+usb_h   = 5;            // USB-C opening height (Z)
+cavity_z = 6;           // center height of side cavity from base (Z)
+
+// -------------------- Window (V2 only) --------------------
+win_len = 14;           // Z length of the window cut
+win_w   = 6;            // Y width of the window cut
+win_th  = 0.8;          // X thickness through wall
+
+// -------------------- LED Channel --------------------
+chan_w  = 4.0;          // X width for wire/LED channel
+chan_h  = tee_height - tip_len - 12; // Z height of channel
+
+// -------------------- Visual Detail --------------------
+ridges_step = 3;        // mm spacing between flex ridges (visual only)
+ridge_d     = 1.0;      // mm ridge sphere diameter
+show_ridges = true;     // set false to remove
+
+// ============================================================
+// Modules
+// ============================================================
+module tee_shell() {
+    // pointed tip
+    translate([0,0,0])
+        cylinder(h=tip_len, r1=0.1, r2=shaft_dia/2);
+
+    // straight shaft
+    translate([0,0,tip_len])
+        cylinder(h=tee_height - tip_len - 10, r=shaft_dia/2);
+
+    // spherical head with shallow cup
+    translate([0,0,tee_height-10])
+        difference() {
+            sphere(d=head_dia);
+            translate([0,0,(head_dia/2) - cup_depth])
+                cylinder(h=cup_depth + 0.2, r=(head_dia/2) - 1);
+        }
+}
+
+module side_cavity() {
+    // Side-mounted electronics cavity (LiPo/charger)
+    translate([shaft_dia/2 + (body_wall/2), 0, cavity_z])
+        cube([bat_h + body_wall, bat_w, bat_len], center=true);
+}
+
+module usb_slot() {
+    // USB-C opening on the side
+    translate([shaft_dia/2 + body_wall, 0, cavity_z])
+        cube([2, usb_w, usb_h], center=true);
+}
+
+module led_channel() {
+    // Slim internal channel up the shaft for LED/wires
+    translate([0,0, tip_len + 5])
+        cube([chan_w, body_wall, chan_h], center=true);
+}
+
+module window_cut() {
+    // Tiny light window (for V2 "window" style only)
+    translate([shaft_dia/2 + body_wall/2, 0, cavity_z])
+        cube([win_th, win_w, win_len], center=true);
+}
+
+module flex_ridges(step=ridges_step, d=ridge_d) {
+    for (i = [0 : step : tee_height - tip_len - 10]) {
+        translate([0, shaft_dia/2 + 0.6, tip_len + i])
+            sphere(d=d);
+    }
+}
+
+// ============================================================
+// Construct the tee
+// ============================================================
+difference() {
+    // outer shape
+    tee_shell();
+
+    // internal features
+    side_cavity();
+    usb_slot();
+    led_channel();
+
+    // if this is the V2 Window style, carve the small window
+    if (STYLE == "window") window_cut();
+}
+
+// surface detail (visual only)
+if (show_ridges) flex_ridges();
+
+
+---
+
+How to export both styles from this one file
+
+In OpenSCAD (GUI)
+
+1. Open cad/gold_tee.scad.
+
+
+2. Set STYLE = "window";
+Press F6 (Render) → File → Export → Export as STL → save as stls/gold_tee_window.stl.
+
+
+3. Change to STYLE = "windowless";
+F6 → Export STL → save as stls/gold_tee_windowless.stl.
+
+
+
+Command-line (great for CI)
+
+From the repo root:
+
+# Window
+openscad -D 'STYLE="window"'     -o stls/gold_tee_window.stl     cad/gold_tee.scad
+# Windowless
+openscad -D 'STYLE="windowless"' -o stls/gold_tee_windowless.stl cad/gold_tee.scad
+
+
+---
 
 ## What Is Gold Tee?
 A standard-feel golf tee with a rechargeable LED for night play and ball finding. The CAD is parametric, so you can export **both styles** from a single file.
@@ -104,7 +251,7 @@ Designed by Christopher Perry. Images © their respective owner(s). MIT License.
 
 
 
-#**Original** 
+#**Original** Recfrence 
 **#Gold Tee** There are Two Styles Window-Windowless
 Hero Image
 
